@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 2%;
+    --foreground: 180 100% 90%;
+    --card: 210 40% 4%;
+    --card-foreground: 180 100% 90%;
+    --popover: 210 40% 2%;
+    --popover-foreground: 180 100% 90%;
+    --primary: 180 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 150 100% 50%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 210 40% 6%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 210 40% 8%;
+    --accent-foreground: 180 100% 50%;
+    --destructive: 340 100% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 40% 12%;
+    --input: 210 40% 12%;
+    --ring: 180 100% 50%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-futuristic;
+    background-image: radial-gradient(circle at 25% 25%, #00f0ff11 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, #00ff8811 0%, transparent 50%);
+  }
+}
+
+@layer components {
+  .hud-scanlines {
+    background-image: repeating-linear-gradient(
+      0deg,
+      rgba(0, 240, 255, 0.03),
+      rgba(0, 240, 255, 0.03) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+
+  .hud-grid {
+    background-image: linear-gradient(rgba(0, 240, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 240, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .hud-glow {
+    box-shadow: 0 0 20px #00f0ff33;
+  }
+
+  .hud-glow-strong {
+    box-shadow: 0 0 30px #00ff8877;
+  }
+
+  .hud-border {
+    border: 1px solid #00f0ff44;
+    background: linear-gradient(135deg, #05070a 0%, #0a0f1a 100%);
+  }
+
+  .hud-button {
+    @apply bg-hud-primary text-black hover:bg-hud-secondary font-futuristic font-bold uppercase tracking-wider;
+    box-shadow: 0 0 15px #00f0ff77;
+    transition: all 0.3s ease;
+  }
+
+  .hud-button:hover {
+    box-shadow: 0 0 25px #00ff8877;
+    transform: translateY(-2px);
+  }
+
+  .hud-input {
+    @apply bg-black bg-opacity-30 border-hud-primary text-hud-primary placeholder-cyan-400;
+    box-shadow: 0 0 12px #00f0ff66;
+  }
+
+  .hud-input:focus {
+    @apply ring-2 ring-hud-primary;
+    box-shadow: 0 0 20px #00f0ff88;
+  }
+}
